@@ -23,7 +23,6 @@ This project demonstrates modern frontend and full-stack web development skills 
 - Fully responsive design for desktop, tablet, and mobile devices  
 
 ---
----
 
 ## Example Events Included
 1. **TechFest 2025** – 15th September 2025, San Francisco Convention Center  
@@ -44,5 +43,3 @@ This project demonstrates modern frontend and full-stack web development skills 
 ---
 
 
-
-## Project Structure
