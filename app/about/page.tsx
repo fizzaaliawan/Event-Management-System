@@ -191,30 +191,36 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center glass-card p-10 sm:p-12 rounded-2xl bg-primary text-primary-foreground">
-          <CalendarCheck className="h-12 w-12 mx-auto mb-4 text-accent" />
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl mb-4 text-primary-foreground">
-            Ready to explore what's happening?
-          </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-pretty">
-            Browse our curated lineup of upcoming conferences, live concerts, workshops, and gatherings today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-6 rounded-xl shadow-lg hover-lift"
-            >
-              <Link href="/events">Explore Events</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-2 border-white text-white hover:bg-white/20 font-bold text-base px-8 py-6 rounded-xl hover-lift"
-            >
-              <Link href="/contact">Contact Our Team</Link>
-            </Button>
+        <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-3xl bg-primary text-primary-foreground shadow-2xl relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-secondary/30 pointer-events-none" />
+          <div className="relative z-10">
+            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-inner">
+              <CalendarCheck className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-4 text-white text-balance drop-shadow-sm">
+              Ready to explore what&apos;s happening?
+            </h2>
+            <p className="text-white/90 max-w-xl mx-auto mb-8 text-pretty text-base sm:text-lg leading-relaxed">
+              Browse our curated lineup of upcoming conferences, live concerts, workshops, and gatherings today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-6 rounded-xl shadow-lg hover-lift"
+              >
+                <Link href="/events">Explore Events</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-base px-8 py-6 rounded-xl hover-lift transition-all"
+              >
+                <Link href="/contact">Contact Our Team</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
