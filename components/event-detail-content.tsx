@@ -219,21 +219,21 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
   }
 
   return (
-    <div className="pt-28 pb-16">
+    <div className="pt-28 pb-24 lg:pb-16">
       {/* Top Single Back Button */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-6">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 mb-4 sm:mb-6">
         <Link
           href="/events"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-sm shadow-sm transition-all hover-lift"
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-xs sm:text-sm shadow-sm transition-all hover-lift"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           <span>Back to All Events</span>
         </Link>
       </div>
 
       {/* Hero Banner Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <section className="relative h-96 sm:h-[420px] md:h-[480px] rounded-3xl overflow-hidden shadow-xl">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6">
+        <section className="relative h-72 sm:h-96 md:h-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-border/40">
           <Image
             src={event.image || "/tech-fest.jpeg"}
             alt={event.name}
@@ -241,18 +241,18 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
 
           {/* Event Title Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 md:p-12 z-10">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8 md:p-12 z-10">
             <div className="max-w-4xl">
-              <Badge variant="secondary" className="bg-primary text-primary-foreground mb-4 px-3.5 py-1 text-sm font-semibold shadow">
+              <Badge variant="secondary" className="bg-primary text-primary-foreground mb-2.5 sm:mb-4 px-3 sm:px-3.5 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold shadow">
                 {event.category}
               </Badge>
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-6xl text-white mb-3 text-balance drop-shadow-md">
+              <h1 className="font-serif font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-2 sm:mb-3 text-balance drop-shadow-md leading-tight">
                 {event.name}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl text-pretty drop-shadow">
+              <p className="text-xs sm:text-base md:text-lg text-white/90 max-w-2xl text-pretty drop-shadow line-clamp-2 sm:line-clamp-none">
                 {event.description}
               </p>
             </div>
@@ -261,7 +261,7 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
       </div>
 
       {/* Event Details Grid */}
-      <section className="py-10 px-4 sm:px-6">
+      <section className="py-6 sm:py-10 px-3.5 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Main Content */}
@@ -375,7 +375,7 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
                         </Button>
                       </DialogTrigger>
 
-                      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
+                      <DialogContent className="w-[94vw] max-w-lg max-h-[90vh] overflow-y-auto p-4 sm:p-6 rounded-2xl">
                         {/* STEP 1: Attendee Info & Quantity */}
                         {checkoutStep === "details" && (
                           <form onSubmit={handleProceedToPayment} className="space-y-4">
@@ -707,6 +707,23 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
           </div>
         </div>
       </section>
+
+      {/* Mobile Sticky Booking Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-border/60 px-4 py-3 shadow-2xl">
+        <div className="max-w-md mx-auto flex items-center justify-between gap-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Price per ticket</p>
+            <p className="font-serif font-bold text-lg text-primary leading-none">{event.price || "Free"}</p>
+          </div>
+          <Button
+            onClick={() => setIsDialogOpen(true)}
+            className="flex-1 max-w-[220px] bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-11 rounded-xl shadow-md text-sm"
+          >
+            <Ticket className="h-4 w-4 mr-1.5" />
+            {isFree ? "Register for Free" : `Get Tickets • ${event.price}`}
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }

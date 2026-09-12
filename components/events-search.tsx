@@ -39,7 +39,7 @@ export function EventsSearch({
     onSearch(val)
   }
 
-  const handleCategoryClick = (category: string) => {
+  const handleCategoryClick = (category: string | null) => {
     if (selectedCategory === category) {
       onCategoryFilter(null)
     } else {
@@ -48,17 +48,17 @@ export function EventsSearch({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Search Input Bar */}
-      <form onSubmit={handleSearch} className="glass-card p-3 sm:p-4 rounded-2xl shadow-md">
+      <form onSubmit={handleSearch} className="glass-card p-2 sm:p-3.5 rounded-2xl shadow-md border border-border/50">
         <div className="flex flex-col sm:flex-row gap-2">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <div className="flex-1 relative min-w-0">
+            <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
             <Input
               placeholder="Search by event name, venue, city, or keyword..."
               value={localQuery}
               onChange={handleInputChange}
-              className="pl-11 pr-10 h-12 text-base rounded-xl border-border/80 focus-visible:ring-primary"
+              className="pl-10 sm:pl-11 pr-10 h-11 sm:h-12 text-sm sm:text-base rounded-xl border-border/70 focus-visible:ring-primary shadow-none"
             />
             {localQuery && (
               <button
@@ -74,7 +74,7 @@ export function EventsSearch({
               </button>
             )}
           </div>
-          <Button type="submit" size="lg" className="px-7 h-12 rounded-xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover-lift">
+          <Button type="submit" size="lg" className="px-6 h-11 sm:h-12 rounded-xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover-lift w-full sm:w-auto text-sm sm:text-base">
             <Search className="h-4 w-4 mr-2" />
             Search
           </Button>
@@ -82,37 +82,48 @@ export function EventsSearch({
       </form>
 
       {/* Category Filter Pills */}
-      <div className="glass-card p-4 sm:p-6 rounded-2xl shadow-md">
+      <div className="glass-card p-3.5 sm:p-5 rounded-2xl shadow-md border border-border/50">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-semibold text-foreground flex items-center text-sm sm:text-base">
-            <Tag className="h-4 w-4 mr-2 text-primary" />
-            Filter by Category
+          <h3 className="font-semibold text-foreground flex items-center text-xs sm:text-sm">
+            <Tag className="h-3.5 w-3.5 mr-1.5 text-primary" />
+            Categories
           </h3>
           {selectedCategory && (
             <Button
               variant="ghost"
               size="sm"
               onClick={() => onCategoryFilter(null)}
-              className="text-xs text-primary font-medium hover:bg-primary/10 h-7 px-2.5 rounded-full"
+              className="text-xs text-primary font-medium hover:bg-primary/10 h-6 px-2 rounded-full"
             >
-              Reset Category
+              Clear Filter
             </Button>
           )}
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          <Badge
+            variant={selectedCategory === null ? "default" : "outline"}
+            className={`cursor-pointer transition-all px-3 py-1.5 text-xs rounded-full font-medium hover-lift ${
+              selectedCategory === null
+                ? "bg-primary text-primary-foreground shadow-xs"
+                : "bg-background/80 hover:bg-primary/10 hover:text-primary border-border text-foreground"
+            }`}
+            onClick={() => handleCategoryClick(null)}
+          >
+            All Categories
+          </Badge>
           {categories.map((category) => (
             <Badge
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
-              className={`cursor-pointer transition-all px-3.5 py-1.5 text-xs sm:text-sm rounded-full font-medium hover-lift ${
+              className={`cursor-pointer transition-all px-3 py-1.5 text-xs rounded-full font-medium hover-lift ${
                 selectedCategory === category
-                  ? "bg-primary text-primary-foreground shadow-sm"
+                  ? "bg-primary text-primary-foreground shadow-xs"
                   : "bg-background/80 hover:bg-primary/10 hover:text-primary border-border text-foreground"
               }`}
               onClick={() => handleCategoryClick(category)}
             >
               {category}
-              {selectedCategory === category && <X className="h-3.5 w-3.5 ml-1.5" />}
+              {selectedCategory === category && <X className="h-3 w-3 ml-1" />}
             </Badge>
           ))}
         </div>

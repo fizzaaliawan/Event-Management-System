@@ -95,25 +95,25 @@ export default function MyTicketsPage() {
     <main className="min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-20 px-4 sm:px-6">
+      <section className="pt-28 sm:pt-36 pb-16 sm:pb-20 px-3.5 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 sm:mb-10">
             <div>
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
-                <Ticket className="h-4 w-4" />
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-2.5">
+                <Ticket className="h-3.5 w-3.5" />
                 <span>My Event Passes & Bookings</span>
               </div>
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl text-primary">
+              <h1 className="font-serif font-bold text-2xl sm:text-4xl md:text-5xl text-primary leading-tight">
                 My Registered Tickets
               </h1>
-              <p className="text-muted-foreground text-sm sm:text-base mt-2">
+              <p className="text-muted-foreground text-xs sm:text-base mt-1.5 sm:mt-2">
                 Manage your confirmed bookings, download official e-tickets, and view order receipts.
               </p>
             </div>
 
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-xl shadow-sm hover-lift self-start md:self-auto">
-              <Link href="/events">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-xl shadow-sm hover-lift self-stretch sm:self-start md:self-auto text-sm">
+              <Link href="/events" className="flex items-center justify-center">
                 <span>Browse More Events</span>
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
@@ -122,10 +122,10 @@ export default function MyTicketsPage() {
 
           {/* Filter Tabs */}
           {tickets.length > 0 && (
-            <div className="flex items-center gap-2 mb-8 border-b border-border/70 pb-4">
+            <div className="flex items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 border-b border-border/70 pb-3 overflow-x-auto no-scrollbar">
               <button
                 onClick={() => setActiveTab("all")}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                className={`px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                   activeTab === "all"
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -135,7 +135,7 @@ export default function MyTicketsPage() {
               </button>
               <button
                 onClick={() => setActiveTab("active")}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                className={`px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                   activeTab === "active"
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -145,7 +145,7 @@ export default function MyTicketsPage() {
               </button>
               <button
                 onClick={() => setActiveTab("cancelled")}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                className={`px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                   activeTab === "cancelled"
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -158,7 +158,7 @@ export default function MyTicketsPage() {
 
           {/* Tickets List */}
           {filteredTickets.length > 0 ? (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {filteredTickets.map((ticket) => (
                 <Card
                   key={ticket.id}

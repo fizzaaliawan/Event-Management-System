@@ -53,13 +53,13 @@ function EventsListContent() {
   return (
     <>
       {/* Page Header */}
-      <section className="pt-28 sm:pt-32 pb-10 px-6">
+      <section className="pt-28 sm:pt-36 pb-8 sm:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h1 className="font-serif font-bold text-4xl md:text-6xl text-primary mb-4 text-balance">
+          <div className="text-center mb-8 sm:mb-10">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-6xl text-primary mb-3 sm:mb-4 text-balance leading-tight">
               Upcoming Events
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+            <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
               Discover amazing events happening around you. From conferences to concerts, find your next unforgettable experience.
             </p>
           </div>
@@ -76,29 +76,29 @@ function EventsListContent() {
       </section>
 
       {/* Events Grid */}
-      <section className="pb-20 px-6">
+      <section className="pb-16 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           {filteredEvents.length > 0 ? (
             <>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="font-serif font-bold text-2xl text-foreground">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
+                <h2 className="font-serif font-bold text-xl sm:text-2xl text-foreground">
                   {searchQuery || selectedCategory
                     ? `Found ${filteredEvents.length} event${filteredEvents.length !== 1 ? "s" : ""}`
                     : `All Events (${filteredEvents.length})`}
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
                 {filteredEvents.map((event) => (
                   <EventCard key={event.id} event={event} />
                 ))}
               </div>
             </>
           ) : (
-            <div className="text-center py-16">
-              <div className="glass-card max-w-md mx-auto p-8 rounded-2xl shadow-lg">
+            <div className="text-center py-12 sm:py-16">
+              <div className="glass-card max-w-md mx-auto p-6 sm:p-8 rounded-2xl shadow-lg border border-border/50">
                 <h3 className="font-serif font-bold text-xl text-foreground mb-2">No Events Found</h3>
-                <p className="text-muted-foreground mb-6 text-pretty">
+                <p className="text-muted-foreground mb-6 text-pretty text-sm sm:text-base">
                   We couldn't find any events matching your criteria. Try adjusting your keywords or reset filters.
                 </p>
                 <button

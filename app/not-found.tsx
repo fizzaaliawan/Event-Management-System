@@ -6,19 +6,19 @@ export default function NotFound() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="glass-card p-12 rounded-lg">
-            <h1 className="font-serif font-bold text-6xl text-primary mb-4">404</h1>
-            <h2 className="font-serif font-bold text-2xl text-foreground mb-4">Event Not Found</h2>
-            <p className="text-muted-foreground mb-8 text-pretty">
+          <div className="glass-card p-6 sm:p-12 rounded-2xl border border-border/50 shadow-md">
+            <h1 className="font-serif font-bold text-5xl sm:text-6xl text-primary mb-3 sm:mb-4">404</h1>
+            <h2 className="font-serif font-bold text-xl sm:text-2xl text-foreground mb-3 sm:mb-4">Event Not Found</h2>
+            <p className="text-muted-foreground mb-6 sm:mb-8 text-pretty text-xs sm:text-base">
               Sorry, we couldn't find the event you're looking for. It may have been moved or no longer exists.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 py-5 rounded-xl shadow-md hover-lift">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 py-5 rounded-xl shadow-md hover-lift w-full sm:w-auto text-sm sm:text-base">
                 <Link href="/events">Browse All Events</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary/10 font-bold px-6 py-5 rounded-xl hover-lift">
+              <Button asChild variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary/10 font-bold px-6 py-5 rounded-xl hover-lift w-full sm:w-auto text-sm sm:text-base">
                 <Link href="/">Go Home</Link>
               </Button>
             </div>

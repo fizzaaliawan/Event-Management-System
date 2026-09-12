@@ -89,34 +89,34 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
-            <Sparkles className="h-4 w-4" />
-            <span>Discovering the Future of Live Experiences</span>
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+            <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+            <span className="truncate">Discovering the Future of Live Experiences</span>
           </div>
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl text-primary mb-6 text-balance leading-tight">
+          <h1 className="font-serif font-bold text-3xl sm:text-5xl md:text-6xl text-primary mb-4 sm:mb-6 text-balance leading-tight">
             Connecting People Through Unforgettable Events
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
+          <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             EventSphere was built to revolutionize how people find, experience, and engage with live summits, tech festivals, concerts, and cultural gatherings.
           </p>
         </div>
       </section>
 
       {/* Stats Counter Section */}
-      <section className="pb-16 px-6">
+      <section className="pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="glass-card p-6 sm:p-8 rounded-xl text-center hover-lift"
+                className="glass-card p-4 sm:p-8 rounded-2xl text-center hover-lift border border-border/50"
               >
-                <div className="font-serif font-bold text-3xl sm:text-4xl text-primary mb-2">
+                <div className="font-serif font-bold text-2xl sm:text-4xl text-primary mb-1 sm:mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm sm:text-base text-muted-foreground font-medium">
+                <div className="text-xs sm:text-sm text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -126,30 +126,30 @@ export default function AboutPage() {
       </section>
 
       {/* Core Mission & Values */}
-      <section className="py-16 px-6 bg-muted/40">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-muted/40">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-serif font-bold text-2xl sm:text-4xl text-foreground mb-3 sm:mb-4">
               Why Choose EventSphere?
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-pretty">
+            <p className="text-muted-foreground max-w-xl mx-auto text-pretty text-xs sm:text-base">
               We focus on delivering the highest quality event discovery and attendance experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {values.map((val, idx) => {
               const Icon = val.icon
               return (
-                <Card key={idx} className="glass-card border-none hover-lift">
-                  <CardContent className="p-8 space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
-                      <Icon className="h-6 w-6" />
+                <Card key={idx} className="glass-card border border-border/50 rounded-2xl hover-lift">
+                  <CardContent className="p-5 sm:p-8 space-y-3 sm:space-y-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <h3 className="font-serif font-bold text-xl text-foreground">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-foreground">
                       {val.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-pretty">
+                    <p className="text-muted-foreground leading-relaxed text-pretty text-xs sm:text-sm">
                       {val.description}
                     </p>
                   </CardContent>
@@ -161,25 +161,25 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ Accordion Section */}
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-serif font-bold text-2xl sm:text-4xl text-foreground mb-3 sm:mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-xs sm:text-base">
               Everything you need to know about EventSphere and attending events.
             </p>
           </div>
 
-          <div className="glass-card p-6 sm:p-8 rounded-xl">
+          <div className="glass-card p-4 sm:p-8 rounded-2xl border border-border/50">
             <Accordion type="single" collapsible className="w-full space-y-2">
               {faqs.map((faq, idx) => (
                 <AccordionItem key={idx} value={`item-${idx}`}>
-                  <AccordionTrigger className="font-serif text-left text-base sm:text-lg text-foreground font-semibold hover:no-underline">
+                  <AccordionTrigger className="font-serif text-left text-sm sm:text-lg text-foreground font-semibold hover:no-underline py-3 sm:py-4">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="text-muted-foreground leading-relaxed text-xs sm:text-sm pb-3">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -190,25 +190,25 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-3xl bg-primary text-primary-foreground shadow-2xl relative overflow-hidden">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center p-6 sm:p-10 md:p-14 rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground shadow-2xl relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-secondary/30 pointer-events-none" />
           <div className="relative z-10">
-            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-inner">
-              <CalendarCheck className="h-8 w-8 text-white" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mx-auto mb-4 sm:mb-6 border border-white/20 shadow-inner">
+              <CalendarCheck className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
             </div>
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-4 text-white text-balance drop-shadow-sm">
+            <h2 className="font-serif font-bold text-2xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 text-white text-balance drop-shadow-sm leading-tight">
               Ready to explore what&apos;s happening?
             </h2>
-            <p className="text-white/90 max-w-xl mx-auto mb-8 text-pretty text-base sm:text-lg leading-relaxed">
+            <p className="text-white/90 max-w-xl mx-auto mb-6 sm:mb-8 text-pretty text-xs sm:text-base leading-relaxed">
               Browse our curated lineup of upcoming conferences, live concerts, workshops, and gatherings today.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-6 rounded-xl shadow-lg hover-lift"
+                className="bg-white text-primary hover:bg-white/90 font-bold text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 rounded-xl shadow-lg hover-lift w-full sm:w-auto"
               >
                 <Link href="/events">Explore Events</Link>
               </Button>
@@ -216,7 +216,7 @@ export default function AboutPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-base px-8 py-6 rounded-xl hover-lift transition-all"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 rounded-xl hover-lift transition-all w-full sm:w-auto"
               >
                 <Link href="/contact">Contact Our Team</Link>
               </Button>

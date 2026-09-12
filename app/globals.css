@@ -138,9 +138,24 @@
 .glass-card {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide scrollbar for clean horizontal scrolling on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch target optimizations */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
 }
 
 /* Enhanced neumorphism shadow utilities with responsive variations */
@@ -152,20 +167,28 @@
   box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.1), inset -8px -8px 16px rgba(255, 255, 255, 0.8);
 }
 
-/* Added responsive improvements and animations */
+/* Responsive improvements and animations */
 @media (max-width: 768px) {
   .neomorphic {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.8);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.08), -4px -4px 8px rgba(255, 255, 255, 0.7);
   }
 
   .neomorphic-inset {
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.08), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
   }
 }
 
 /* Added smooth scroll behavior and improved focus states */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Mobile viewport adjustments & iOS font size zoom prevention */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Enhanced focus states for better accessibility */
@@ -175,7 +198,7 @@ html {
   box-shadow: 0 0 0 2px var(--ring);
 }
 
-/* Added line-clamp utilities for better text truncation */
+/* Line-clamp utilities for clean text truncation */
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -197,17 +220,19 @@ html {
   -webkit-line-clamp: 3;
 }
 
-/* Added improved hover and transition effects */
+/* Hover and transition effects */
 .hover-lift {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
 }
 
-/* Added loading animation for better UX */
+/* Loading animation for better UX */
 @keyframes pulse-subtle {
   0%,
   100% {
